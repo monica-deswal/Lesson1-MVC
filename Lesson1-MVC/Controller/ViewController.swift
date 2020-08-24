@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     var viewModel = StoryViewModel()
     
+    //Changes
     override func viewDidLoad(){
         super.viewDidLoad()
         setUpInterface()
