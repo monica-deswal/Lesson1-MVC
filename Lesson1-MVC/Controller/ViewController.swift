@@ -37,17 +37,20 @@ class ViewController: UIViewController {
     
     func displayTheData()  {
         self.questionLabel.text = self.viewModel.getTitleText()
-       
-        //   self.choiceButton1.titleText
-        //        self.choiceButton1.sett
-        //        text = self.viewModel.choiceButton1Title()
-        //        self.choiceButton2.text = self.viewModel.choiceButton2Title()
+        self.choiceButton1.setTitle(self.viewModel.choiceButton1Title(), for: .normal)
+        self.choiceButton2.setTitle(self.viewModel.choiceButton2Title(), for: .normal)
     }
     
     @IBAction func SelectedChoice(_ sender: UIButton) {
-        //  self.questionLabel.
+        if self.viewModel.currentIndex+1 < self.viewModel.arrayOfStories!.count {
+            self.viewModel.currentIndex += 1
+            self.displayTheData()
+        }else{
+            self.questionLabel.text = "Thanks for being a part of this game."
+            self.choiceButton1.isHidden = true
+            self.choiceButton2.isHidden = true
+        }
     }
-    
     
 }
 
